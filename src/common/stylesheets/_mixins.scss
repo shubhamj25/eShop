@@ -1,0 +1,24 @@
+@mixin font-style($weight, $size, $lineHeight, $color) {
+  font-weight: #{$weight};
+  font-size: #{$size};
+  line-height: #{$lineHeight}px;
+  color: #{$color};
+}
+
+@mixin display-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin multi-line-text-ellipsis($noOfLines) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $noOfLines;
+  -webkit-box-orient: vertical;
+}
+
+@mixin horizontal-scroll {
+  display: -webkit-box;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
