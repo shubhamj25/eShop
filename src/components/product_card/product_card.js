@@ -13,32 +13,33 @@ export default function ProductCard({ props, isEditable, onDelete }) {
     let { id, name, description, category, price, manufacturer, availableItems, imageUrl } = props || {}
     const navigate = useNavigate()
     return (
-        <Card key={id} sx={{ maxWidth: 345 }}>
+        <Card key={id} sx={{ maxWidth: '345px', borderRadius: '12px' }} elevation={2}>
             <img
                 src={imageUrl}
                 alt={name}
+                style={{ maxHeight: '345px' }}
                 className='center'
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h6" component="div">
                     {name}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="text.secondary" sx={{ textOverflow: 'ellipsis', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical' }}>
                     {description}
                 </Typography>
-                <Typography variant="h5" color="text.secondary">
+                <Typography variant="p" color="text.secondary" sx={{ mt: 2, fontSize: '18px', fontWeight: '600' }}>
                     Rs.{price}
                 </Typography>
             </CardContent>
             <CardActions sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Button size="small" variant='contained' fullWidth onClick={() => {
+                <Button size="small" variant='contained' sx={{ borderRadius: '8px', textTransform: 'none' }} fullWidth onClick={() => {
                     navigate(ROUTES.PRODUCT.replace(':id', id))
-                }} >BUY</Button>
+                }} >Buy</Button>
                 {isEditable ? <Container sx={{ width: 'min-content', display: 'flex' }}>
-                    <Edit sx={{ paddingRight: '12px', cursor: 'pointer' }} onClick={()=>navigate(ROUTES.ADD_PRODUCT.replace(':id',id))} />
+                    <Edit sx={{ paddingRight: '12px', cursor: 'pointer' }} onClick={() => navigate(ROUTES.MODIFY_PRODUCT.replace(':id', id))} />
                     <Delete sx={{ cursor: 'pointer' }} onClick={onDelete} />
                 </Container> : <></>}
             </CardActions>
-        </Card>
+        </Card >
     );
 }

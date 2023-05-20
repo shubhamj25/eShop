@@ -1,3 +1,6 @@
+import STORAGE_KEYS from "../../common/constants/storage_keys"
+import StorageUtil from "../../common/utils/storage"
+
 let initialState = {
   addresses: null,
   error: null,
@@ -12,16 +15,16 @@ let checkoutReducer = (state = initialState, action) => {
     case 'SET_ADDRESSES': {
       return {
         ...state,
-        addresses: action.payload,
-        orderPlacedSuccessfully : null
+        addresses: [...action.payload].filter(a => a.user == StorageUtil.localStorage.get(STORAGE_KEYS.USER_ID)),
+        orderPlacedSuccessfully: null
       }
     }
 
     case 'ADD_ADDRESS': {
       return {
         ...state,
-        addresses: [...state.addresses, ...action.payload],
-        orderPlacedSuccessfully : null
+        addresses: [...state.addresses, action.payload].filter(a => a.user == StorageUtil.localStorage.get(STORAGE_KEYS.USER_ID)),
+        orderPlacedSuccessfully: null
       }
     }
 
@@ -29,7 +32,7 @@ let checkoutReducer = (state = initialState, action) => {
       return {
         ...state,
         product: action.payload,
-        orderPlacedSuccessfully : null
+        orderPlacedSuccessfully: null
       }
     }
 
@@ -38,7 +41,7 @@ let checkoutReducer = (state = initialState, action) => {
       return {
         ...state,
         quantity: action.payload,
-        orderPlacedSuccessfully : null
+        orderPlacedSuccessfully: null
       }
     }
 
@@ -54,7 +57,7 @@ let checkoutReducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
-        orderPlacedSuccessfully : null
+        orderPlacedSuccessfully: null
       }
     }
 

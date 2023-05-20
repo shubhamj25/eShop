@@ -41,6 +41,11 @@ class RouteWrapper extends Component {
         />
          <Route
           exact
+          path={ROUTES.MODIFY_PRODUCT}
+          element={<RouteHoc childComponent={<AddOrModifyProduct/>} />}
+        />
+        <Route
+          exact
           path={ROUTES.ADD_PRODUCT}
           element={<RouteHoc childComponent={<AddOrModifyProduct/>} />}
         />

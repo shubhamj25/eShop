@@ -90,6 +90,13 @@ const HomeActions = {
     }
   },
 
+  filterProducts: (filters) => {
+    return {
+      type: 'FILTER_PRODUCTS',
+      payload: filters
+    }
+  },
+
   clearProducts: () => {
     return {
       type: 'CLEAR_PRODUCTS',

@@ -21,8 +21,11 @@ export const mapDispatchToProps = dispatch => {
     getUserDetails: (id) => {
       dispatch(UserActions.getUserDetails(id))
     },
-    deleteProduct:(id)=>{
+    deleteProduct: (id) => {
       dispatch(HomeActions.deleteProduct(id))
+    },
+    filterProducts: (filters) => {
+      dispatch(HomeActions.filterProducts(filters))
     }
 
   }
