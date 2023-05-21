@@ -10,8 +10,8 @@ const SignInActions = {
         if (response.status != 200) {
           dispatch(SignInActions.setLoginError())
         } else {
-          StorageUtil.localStorage.set(STORAGE_KEYS.AUTH_TOKEN,response.data['token'])
-          StorageUtil.localStorage.set(STORAGE_KEYS.USER_ID,response.data['id'])
+          StorageUtil.localStorage.set(STORAGE_KEYS.AUTH_TOKEN, response.data['token'])
+          StorageUtil.localStorage.set(STORAGE_KEYS.USER_ID, response.data['id'])
           dispatch(SignInActions.setLoginSuccessful(response.data))
         }
       } catch (e) {
@@ -23,11 +23,11 @@ const SignInActions = {
   setLoginError: (e) => {
     return {
       type: 'SET_LOGIN_ERROR',
-      payload: e.toString()
+      payload: 'Incorrect username or password!'
     }
   },
 
-  setAuthToken:(payload)=>{
+  setAuthToken: (payload) => {
     return {
       type: 'SET_AUTH_TOKEN',
       payload: payload

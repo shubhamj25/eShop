@@ -352,8 +352,9 @@ export default function Checkout(props) {
                     </Stepper>
                     {activeStep === steps.length ? (
                         <React.Fragment>
-                            <CircularProgress sx={{ ml: 24, mt: 24 }} />
-                            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+                            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2, mt: 4 }}>
+                                <CircularProgress size={24} sx={{ ml: '8px' }} />
+                                <div style={{ marginLeft: '20px' }}>Please wait while we confirm your order !</div>
                                 <Box sx={{ flex: '1 1 auto' }} />
                                 <Button onClick={handleReset}>Retry</Button>
                             </Box>

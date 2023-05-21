@@ -38,7 +38,7 @@ const ProductDetail = (props) => {
                 <div className="product-name">{name}</div>
                 <div className="product-category">Category : <b>{category}</b></div>
                 <div className="product-description">{description}</div>
-                <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
                     <Grid item xs={4}>
                         <TextField
                             required
