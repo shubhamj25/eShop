@@ -1,20 +1,14 @@
 import React from 'react'
-import LoadingOverlay from 'react-loading-overlay'
 import './index.scss'
+import { CircularProgress } from '@mui/material'
 
 const FullScreenLoader = ({ children, text }) => {
   if (!text) {
     text = "Loading"
   }
   return (
-    <LoadingOverlay
-      active={true}
-      spinner
-      text={text}
-      className="full-screen-loader"
-    >
-      {children}
-    </LoadingOverlay>
+    <div className='full-screen-loader'> <CircularProgress /></div>
+
   )
 }
 

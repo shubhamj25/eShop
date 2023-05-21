@@ -6,6 +6,7 @@ import StorageUtil from './utils/storage'
 import STORAGE_KEYS from './constants/storage_keys'
 import { useNavigate } from 'react-router'
 import { ROUTES } from './constants/routes'
+import FullScreenLoader from '../components/full_screen_loader'
 
 
 const RouteHoc = ({ childComponent, setAuthToken, loginDetailsSlice }) => {
@@ -25,7 +26,7 @@ const RouteHoc = ({ childComponent, setAuthToken, loginDetailsSlice }) => {
     }
   }, [])
 
-  return isAuthorized ? childComponent : <h1>Loading....</h1>
+  return isAuthorized ? childComponent : <FullScreenLoader/>
 
 }
 
